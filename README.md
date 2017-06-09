@@ -27,3 +27,10 @@ This site will contain three basic elements:
 * My journey
 * My notes
 * My projects
+
+##### Contact
+
+Feel free to contact me with any questions!
+
+Mat Longinow
+mat.longinow@gmail.com
