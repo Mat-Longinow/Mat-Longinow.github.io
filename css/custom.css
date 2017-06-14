@@ -1,0 +1,54 @@
+/* ----- Style.css ----- */
+/* Use this style sheet for general stylyzing */
+
+body {
+	height: 100%;
+}
+
+#header {
+	width: 100%;
+	height: 35em;
+	background-color: #f8f8ff;
+	background-size: cover;
+	color: #fff;
+}
+
+nav.navbar-default {
+	background-color: transparent;
+	border: none;
+}
+
+#navBarLogo {
+	height: 10em;
+	width: 10em;
+	margin: 25px;
+}
+
+#navBarRight {
+	padding-top: 5%;
+}
+
+#innerNavBar {
+	padding: 0 10%;
+}
+
+nav li {
+	padding: 5px;
+}
+
+html body #navbar .navbar-nav > li > a {
+	border-right: 1px solid #000;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #000;
+}
+
+html body #navbar .navbar-nav > li:last-child > a {
+	border-right: none;
+}
+
+html .navbar-default .navbar-nav > .active>a, html .navbar-default .navbar-nav > .active>a:hover {
+	background-color: transparent;
+} {
+	background-color: transparent;
+}
