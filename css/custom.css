@@ -1,15 +1,53 @@
-/* ----- Style.css ----- */
-/* Use this style sheet for general stylyzing */
+/*
+----- Custom.css -----
+Use this style sheet for general stylyzing
+*/
+
+/*----- General -----*/
 
 body {
 	height: 100%;
 }
 
+.section-title {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.container {
+	padding-bottom: 40px;
+}
+
+.row {
+	margin-bottom: 20px;
+}
+
+.off-white {
+	background-color: #f5f5f5;
+}
+
+.light-gray {
+	background-color: #bfbfbf;
+}
+
+.dark-gray {
+	background-color: #262624;
+	color: #fff;
+}
+
+.red-font {
+	color: #dd352e;
+}
+
+.right {
+	float: right;
+}
+
+/*----- Header -----*/
+
 #header {
 	width: 100%;
 	height: 35em;
-	background-color: #f8f8ff;
-	background-size: cover;
 	color: #fff;
 }
 
@@ -40,6 +78,7 @@ html body #navbar .navbar-nav > li > a {
 	border-right: 1px solid #000;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	padding-right: 25px;
 	color: #000;
 }
 
@@ -49,6 +88,8 @@ html body #navbar .navbar-nav > li:last-child > a {
 
 html .navbar-default .navbar-nav > .active>a, html .navbar-default .navbar-nav > .active>a:hover {
 	background-color: transparent;
-} {
-	background-color: transparent;
+}
+
+#title, #sub-title {
+	color: #000;
 }
