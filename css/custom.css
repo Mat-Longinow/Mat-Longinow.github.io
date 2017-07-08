@@ -93,3 +93,26 @@ html .navbar-default .navbar-nav > .active>a, html .navbar-default .navbar-nav >
 #title, #sub-title {
 	color: #000;
 }
+
+/*----- About My Journey -----*/
+
+#aboutJourney #question-left {
+	border-right: 2px solid #000;
+	vertical-align: middle;
+}
+
+#aboutJourney #question-right {
+	border-left: 2px solid #000;
+	vertical-align: middle;
+}
+
+#aboutJourney .no-float {
+	display: table-cell;
+	float: none;
+}
+
+/*----- Footer -----*/
+
+footer {
+	padding-top: 30px;
+}
