@@ -3,10 +3,24 @@
 Use this style sheet for general stylyzing
 */
 
+/*----- Fonts -----*/
+
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+
 /*----- General -----*/
 
 body {
 	height: 100%;
+	font-family: 'Arvo', serif;
+}
+
+a {
+	color: #dd352e;
+}
+
+a:hover {
+	color: #a31c16;
 }
 
 .section-title {
@@ -43,6 +57,7 @@ body {
 	float: right;
 }
 
+
 /* These are for styling the sections where
 the question is featured on home and contact page
 no-float is specifically to make the column 100%
@@ -65,10 +80,20 @@ height of the other column*/
 
 /*----- Header -----*/
 
-#header {
+header {
 	width: 100%;
-	height: 35em;
+	height: 27em;
 	color: #fff;
+}
+
+#title, #sub-title {
+	color: #000;
+}
+
+/*----- Nav -----*/
+
+nav {
+	font-weight: bold;
 }
 
 nav.navbar-default {
@@ -110,16 +135,7 @@ html .navbar-default .navbar-nav > .active>a, html .navbar-default .navbar-nav >
 	background-color: transparent;
 }
 
-#title, #sub-title {
-	color: #000;
-}
-
-
-/*--------------------
-		Home Page
---------------------*/
-
-/*----- Footer -----*/
+/*----- Footer ----- */
 
 footer {
 	padding-top: 30px;
@@ -129,9 +145,41 @@ footer .container {
 	padding-bottom: 0;
 }
 
-/*--------------------
+
+/*-------------------------
+		Home Page
+-------------------------*/
+
+#home-header {
+	height: 30em;
+}
+
+/*-------------------------
+		Journey Page
+-------------------------*/
+
+.blog-row {
+	margin: 0;
+	padding: 0px 20px 40px 20px;
+}
+
+#blog-section-title {
+	padding-top: 20px;
+}
+
+/*-------------------------
+		Projects Page
+--------------------------*/
+
+#projects-showcase {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+
+/*-------------------------
 		Contact Page
---------------------*/
+-------------------------*/
 
 #contact img {
 	height: 100px;
@@ -140,4 +188,6 @@ footer .container {
 #contact a:hover.red-font {
 	color: #a31c16;
 }
+
+
 

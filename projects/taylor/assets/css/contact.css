@@ -1,0 +1,9 @@
+/* ---------------------------------------------------- */
+/*Use this file for custom css styling for the Contact page*/
+/* ---------------------------------------------------- */
+
+/* Google Map */
+
+#google-map-container {
+	height: 20em;
+}
