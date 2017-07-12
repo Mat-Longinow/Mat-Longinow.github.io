@@ -1,0 +1,244 @@
+body {
+	background-image: url(images/castle_background.jpg);
+	background-size: 100%;
+	position: relative;
+}
+
+.width-center {
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	right: 0;
+}
+
+.height-center {
+	bottom: 0;
+	margin-bottom: auto;
+	margin-top: auto;
+	position: absolute;
+	top: 0;
+}
+
+#dkContainer {
+	display: inline-block;
+	width: 910px;
+}
+
+#dragon, #knight {
+	border: 1px solid #000;
+	display: inline-block;
+	height: 250px;
+	margin: 100px;
+	width: 250px;
+}
+
+#dragon2, #dragonOpenMouth, #dragon2OpenMouth, #knight2, #knightExtendedArm, #knight2ExtendedArm {
+	display: inline-block;
+	height: 0;
+	margin: 100px;
+	position: absolute;
+	top: 0;
+	width: 250px;
+	z-index: 5;
+}
+
+#dragon2, #dragonOpenMouth, #dragon2OpenMouth {
+	left: 0;
+}
+
+#knight2, #knightExtendedArm, #knight2ExtendedArm {
+	left: 454px;
+}
+
+#spear, #sword {
+	height: 100px;
+	left: 550px;
+	position: absolute;
+	top: 175px;
+	width: 200px;
+	z-index: -1;
+}
+
+#sword {
+	height: 70px;
+	width: 225px;
+}
+
+#spear1, #spear2, #spear3, #sword1, #sword2, #sword3 {
+	height: 200px;
+	position: absolute;
+	top: -225px;
+	width: 100px;
+	z-index: 6;
+}
+
+#sword1, #sword2, #sword3 {
+	width: 70px;
+	height: 225px;
+}
+
+
+#spear1, #sword1 {
+	left: 80px;
+}
+
+#spear2, #sword2 {
+	left: 180px;
+}
+
+#spear3, #sword3 {
+	left: 280px;
+}
+
+#flame {
+	height: 0px;
+	left: 335px;
+	position: absolute;
+	top: 100px;
+	width: 200px;
+}
+
+#fireball {
+	height: 300px;
+	left: 530px;
+	position: absolute;
+	top:-300px;
+	width: 300px;
+	z-index: 6;
+}
+
+#hContainer {
+	font-size: 0;
+	height: 50px;
+	position: absolute;
+	top: 352px;
+	width: 100%;
+}
+
+#dragonHealth, #knightHealth {
+	display: inline-block;
+	height: 50px;
+	position: relative;
+	width: 50%;
+}
+
+#dragonHB, #knightHB {
+	bottom: 0;
+	height: 25px;
+	margin-bottom: auto;
+	margin-top: auto;
+	top: 0;
+}
+
+#expContainer {
+	top: 400px;
+	width: 910px;
+}
+
+#knightExp {
+	float: right;
+	position: relative;
+	width: 50%;
+}
+
+#stats {
+	font-size: 0;
+	top: 100px;
+	width: 1210px;
+}
+
+#dragonStatsBox, #knightStatsBox {
+	display: inline-block;
+	position: relative;
+	width: 50%;
+}
+
+#dragonStats, #knightStats {
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 1px solid #000;
+	font-size: 18px;
+	font-weight: bold;
+	width: 210px;
+}
+
+#dragonStats {
+	float: left;
+}
+
+#knightStats {
+	float: right;
+}
+
+.note {
+	font-style: italic;
+}
+
+p {
+	padding: 3px;
+}
+
+.btn {
+	width: 100px;
+}
+
+#btnContainer {
+	font-size: 0;
+	top: 452px;
+	width: 910px;
+}
+
+#attackContainer, #specialContainer {
+	display: inline-block;
+	position: relative;
+	width: 50%;
+}
+
+#attackButton {
+	float: right;
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+#specialAttackButton {
+	float: left;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+#fightBox {
+	background-color: rgba(184, 184, 184, 0.6);
+	border: 3px solid #000;
+	margin-top: 50px;
+	min-height: 100px;
+	top: 482px;
+	width: 910px;
+}
+
+#fightConsole {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+	padding: 15px;
+}
+
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake {
+	-webkit-animation-name: spaceboots;
+	-webkit-animation-duration: 0.8s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>
+		Celebratin'
+	</title>
+
+	<link type="text/css" rel="stylesheet" href="celebration.css" />
+	<script src="http://cdn.alloyui.com/2.0.0pr7/aui/aui-min.js"></script>
+	<link href="http://cdn.alloyui.com/2.0.0pr7/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+</head>
+
+<body>
+	<embed src="sound/celebration.mp3" hidden="true" autostart="true" loop=true />
+	<embed src="sound/Scream_Of_Joy.mp3" hidden="true" autostart="true" loop="false" />
+	<embed src="sound/Applause.mp3" hidden="true" autostart="true" loop="false" />
+	<img class="bounce" id="knight2" src="images/knight2_no_background.png" />
+	<img class="spasm" id="knight" src="images/knight_no_background.png" />
+	<img class="dance" id="dragon" src="images/goofy_green_dragon_no_background.png" />
+	<img class="seizure" id="dragon2" src="images/dragon2_no_background.png" />
+</body>
+
+<script>
+	YUI().use(
+		'aui-base',
+		function(Y) {
+			var knight = Y.one('#knight');
+			var win = Y.getWin();
+
+			var windowHeight = win.get('innerHeight');
+			var windowWidth = win.get('innerWidth');
+
+			var knightHeight = knight.get('offsetHeight');
+			var knightWidth = knight.get('offsetWidth');
+
+			var left = ((windowWidth / 2) - (knightWidth / 2));
+			var top = ((windowHeight / 2) - (knightHeight / 2)) * 0.50;
+
+			knight.setStyles(
+				{
+					left: left,
+					top: top
+				}
+			);
+		}
+	);
+</script>
+
+</html>

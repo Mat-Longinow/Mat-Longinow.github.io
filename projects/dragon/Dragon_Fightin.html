@@ -1,0 +1,808 @@
+<!doctype html>
+<html>
+<head>
+	<title>
+		Dragon Fightin'
+	</title>
+	<link type="text/css" rel="stylesheet" href="main.css" />
+	<script src="http://cdn.alloyui.com/2.0.0pr7/aui/aui-min.js"></script>
+	<link href="http://cdn.alloyui.com/2.0.0pr7/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+</head>
+
+<body>
+	<div id="openerPopup"></div>
+	<div id="newDragonPopup"></div>
+	<div id="jehovahRapha"></div>
+	<div id="levelUp"></div>
+	<div id="congrats"></div>
+	<div id="dkContainer" class="width-center">
+		<img id="dragon" src="images/goofy_green_dragon.jpg" />
+		<img id="dragonOpenMouth" src="images/goofy_green_dragon_open_mouth.png" />
+		<img id="dragon2" src="images/dragon2.jpg" />
+		<img id="dragon2OpenMouth" src="images/dragon2_open_mouth.png" />
+		<img id="flame" src="images/flame_edited.png" />
+		<img id="knight" src="images/knight.jpg" />
+		<img id="knightExtendedArm" src="images/knight_extended_arm.jpg" />
+		<img id="knight2" src="images/knight2.png" />
+		<img id="knight2ExtendedArm" src="images/knight2_extended_arm.png" />
+		<img id="spear" src="images/spear_color_edited.png" />
+		<img id="sword" src="images/knight_arm.png" />
+		<img id="spear1" src="images/spear_color_down_edited.png" />
+		<img id="sword1" src="images/knight_arm_downward.png" />
+		<img id="spear2" src="images/spear_color_down_edited.png" />
+		<img id="sword2" src="images/knight_arm_downward.png" />
+		<img id="spear3" src="images/spear_color_down_edited.png" />
+		<img id="sword3" src="images/knight_arm_downward.png" />
+		<img id="fireball" src="images/fireball_edited.png" />
+		<div id="hContainer">
+			<div id="dragonHealth">
+				<div id="dragonHB" class="width-center progress-success"></div>
+			</div>
+
+			<div id="knightHealth">
+				<div id="knightHB" class="width-center progress-success"></div>
+			</div>
+		</div>
+
+
+		<div id="expContainer" class="width-center">
+			<div id="knightExp">
+				<div id="knightEB" class="width-center"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="stats" class="width-center">
+		<div id="dragonStatsBox">
+			<div id="dragonStats">
+				<p id="dragonAttack">
+					Attack: 30 - 60
+				</p>
+
+				<p id="dragonSpecialAttack">
+					Special Attack: 10 - 100
+				</p>
+
+				<p class="note">
+					Note: Special Attack may miss it's target
+				</p>
+			</div>
+		</div>
+
+		<div id="knightStatsBox">
+			<div id="knightStats">
+				<p id="knightAttack">
+					Attack: 30 - 40
+				</p>
+
+				<p id="knightSpecialAttack">
+					Special Attack: 10 - 70
+				</p>
+
+				<p class="note">
+					Note: Special Attack may miss it's target
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="btnContainer" class="width-center">
+		<div id="attackContainer">
+			<div class="btn btn-danger" id="attackButton">
+				Attack!
+			</div>
+		</div>
+
+		<div id="specialContainer">
+			<div class="btn btn-danger" id="specialAttackButton">
+				Special Attack!
+			</div>
+		</div>
+	</div>
+
+	<div id="fightBox" class="width-center">
+		<p id="fightConsole"></p>
+	</div>
+
+
+	<script>
+	YUI().use(
+		'aui-modal', 'aui-progressbar', 'async-queue', 'transition', // Load the necessary aui modules
+		function(Y) {
+			var attackButton = Y.one('#attackButton');
+			var specialAttack = Y.one('#specialAttackButton');
+			var fightBox = Y.one('#fightBox');
+			var knightAttackStat = Y.one('#knightAttack');
+			var knightSpecialAttackStat = Y.one('#knightSpecialAttack');
+			var dragonStats = Y.one('#dragonStats');
+			var dragonAttackStat = Y.one('#dragonAttack');
+			var dragonSpecialAttackStat = Y.one('#dragonSpecialAttack');
+
+			var knight = Y.one('#knight');
+			var knightExtendedArm = Y.one('#knightExtendedArm');
+			var knight2 = Y.one('#knight2');
+			var knight2ExtendedArm = Y.one('#knight2ExtendedArm');
+			var dragon = Y.one('#dragon');
+			var dragonOpenMouth = Y.one('#dragonOpenMouth');
+			var dragon2 = Y.one('#dragon2');
+			var dragon2OpenMouth = Y.one('#dragon2OpenMouth');
+
+			var spear = Y.one('#spear');
+			var sword = Y.one('#sword');
+			var spear1 = Y.one('#spear1');
+			var sword1 = Y.one('#sword1');
+			var spear2 = Y.one('#spear2');
+			var sword2 = Y.one('#sword2');
+			var spear3 = Y.one('#spear3');
+			var sword3 = Y.one('#sword3');
+			var flame = Y.one('#flame');
+			var fireball = Y.one('#fireball');
+
+			var secondDragon = false;
+			var knightLevelTwo = false;
+
+			var totalKnightExperience = 0;
+
+			var totalDragonHealth = 100;
+			var totalKnightHealth = 100;
+
+			var knightDamage = [3, 4];
+			var knightLevelTwoDamage = [5, 6, 7];
+			var knightLevelTwoSpecialDamage = [3, 4, 5, 6, 7, 8, 9, 10];
+
+			var dragonDamage = [3, 4, 5, 6];
+			var dragon2Damage = [60, 70, 80];
+			var dragon2SpecialDamage = [40, 50, 60, 70, 80, 90, 100, 120];
+
+			//Dragon's health bar using the aui-progressbar
+
+			dragonHealthBar = new Y.ProgressBar (
+				{
+					boundingBox: '#dragonHB',
+					label: '100',
+					value: totalDragonHealth,
+					width: 200
+				}
+			).render();
+
+			//Knight's health bar using the aui-progressbar
+			knightHealthBar = new Y.ProgressBar (
+				{
+					boundingBox: '#knightHB',
+					label: '100',
+					on: {
+						valueChange: function() {
+							this.set('label', totalKnightHealth);
+						}
+					},
+					value: totalKnightHealth,
+					width: 200
+				}
+			).render();
+
+			//Knight's experience bar using the aui-progressbar
+			knightExpBar = new Y.ProgressBar (
+				{
+					boundingBox: '#knightEB',
+					label: totalKnightExperience,
+					on: {
+						valueChange: function() {
+							this.set('label', totalKnightExperience);
+						}
+					},
+					value: totalKnightExperience, //passing in the variable that holds the knights experience
+					width: 200
+				}
+			).render();
+
+			//The function that builds a modal popup based on the arguments passed in
+			function newModal(bodyContent, headerContent, height, width, render, footerFn) {
+				new Y.Modal(
+					{
+						bodyContent: bodyContent,
+						centered: true,
+						draggable: true,
+						headerContent: headerContent,
+						height: height,
+						modal: true,
+						render: render,
+						toolbars: {
+							footer: [
+								{
+									label: 'Okay',
+									on: {
+										click: footerFn,
+									}
+								}
+							]
+						},
+						width: width,
+						zIndex: 100
+					}
+				).render();
+			}
+
+			newModal(
+				'Defend thyself great sir knight! A dragon approacheth.',
+				'<h3>Look Out!</h3>',
+				175,
+				400,
+				'#openerPopup',
+				function() {
+					Y.one('#openerPopup').hide();
+				}
+			);
+
+			function newAsyncQueueRefresh(bar, totalVar, upgradeVar) {
+				new Y.AsyncQueue(
+					{
+						fn: function() {
+							bar.set('value', totalVar); //updates the value of the progress bar
+							if(upgradeVar) {
+								bar.set('label', (totalVar*2));
+							}
+							else {
+								bar.set('label', totalVar); //updates the label of the progress bar
+							}
+						},
+						iterations: 1
+					}
+				).run();
+			}
+
+			function attackShake(person) {
+				person.addClass('shake');
+				var stop = new Y.debounce(
+					function(){
+						person.removeClass('shake');
+					},
+					1000
+				);
+
+				stop();
+			}
+
+			function imageSwitch(person1, person2) {
+				person2.setStyle('height', '250px');
+				person2.setStyle('border', '1px solid #000');
+				person1.setStyle('height', '0');
+				person1.setStyle('border', '0');
+			};
+
+			function imageAttackSwitch(person1, person2) {
+				person2.setStyle('height', '250px');
+				person2.setStyle('border', '1px solid #000');
+				person1.setStyle('height', '0');
+				person1.setStyle('border', '0');
+
+				var undo = new Y.debounce(
+					function(){
+						person1.setStyle('height', '250px');
+						person1.setStyle('border', '1px solid #000');
+						person2.setStyle('height', '0');
+						person2.setStyle('border', '0');
+					},
+					1000
+				);
+
+				undo();
+			}
+
+			function knightSpecialAttackAnimation(object, delay, duration) {
+				object.transition({
+					delay: delay,
+					duration: duration,
+					top: '-25px'
+				}, function() {
+					object.transition({
+						duration: 0,
+						top: '-225px'
+					})
+				});
+			}
+
+			function knightAttackAnimation(object) {
+				object.transition({
+					left: {
+						duration: 0.6,
+						easing: 'ease-in',
+						value: '350px'
+					}
+				}, function() {
+					object.transition ({
+						left: {
+							duration: 0.6,
+							easing: 'ease-in',
+							value: '550px'
+						}
+					})
+				});
+			}
+
+			//This function runs when it's the dragon's turn to attack
+			var dragonsTurn = new Y.debounce(function() {
+				var dragonRandom = Math.floor(Math.random()* 2); // Randomly determines Dragon's attack
+				var dragonSpecial = Math.floor(Math.random()* 2); // Determines if Dragon's special misses or not
+				var dragonDamageThisRound = dragonDamage[Math.floor(Math.random()* 3.9)]; // Randomly determines the damage done between 10 and 80
+				var dragonSpecialAttackDamageThisRound = Math.floor(Math.random()* 9.9 + 1); // Randomly determines the damage done between 10 and 60
+				var dragon2DamageThisRound = dragon2Damage[Math.floor(Math.random()* 2.9)];
+				var dragon2SpecialAttackDamageThisRound = dragon2SpecialDamage[Math.floor(Math.random()* 7.9)];
+
+				//if dragonRandom is true (which is randomly determined), then the dragon does it's normal attack
+				if (dragonRandom) {
+					if(secondDragon) {
+						imageAttackSwitch(dragon2, dragon2OpenMouth);
+					}
+					else {
+						imageAttackSwitch(dragon, dragonOpenMouth);
+					}
+
+					//animation for the flame when the Dragon attacks
+					flame.transition({
+						duration: 0,
+						height: '100px',
+
+						top: {
+							duration: 0.8,
+							easing: 'ease-in',
+							value: '225px'
+						}
+					}, function() {
+						flame.transition ({
+							duration: 0,
+							height: '0px',
+
+							top: {
+								duration: 0,
+								easing: 'ease-in',
+								value: '100px'
+							}
+						})
+					});
+
+					if(knightLevelTwo) {
+						attackShake(knight2);
+					}
+					else {
+						attackShake(knight);
+					}
+
+					if(secondDragon) {
+						fightConsole.innerHTML += 'Yoinks! It appearath as tho the dragon hath scorched thee by ' + dragon2DamageThisRound + '! <br>';
+
+						if(knightLevelTwo) {
+							totalKnightHealth -= (dragon2DamageThisRound/2);
+						}
+						else{
+							totalKnightHealth -= dragon2DamageThisRound;
+						}
+					}
+					else {
+						fightConsole.innerHTML += 'Yoinks! It appearath as tho the dragon hath scorched thee by ' + (dragonDamageThisRound * 10) + '! <br>';
+
+						if(knightLevelTwo) {
+							totalKnightHealth -= (dragonDamageThisRound * 5);
+						}
+						else {
+							totalKnightHealth -= (dragonDamageThisRound * 10);
+						}
+					}
+
+					if(totalKnightHealth <= 0) {
+						fightConsole.innerHTML += 'Thou art dead.';
+						totalKnightHealth = 0;
+					}
+				}
+				else {
+					//if dragonRandom is false (which is randomly determined), then the dragon does it's special attack
+					if(dragonSpecial) {
+						if(secondDragon) {
+							imageAttackSwitch(dragon2, dragon2OpenMouth);
+						}
+						else {
+							imageAttackSwitch(dragon, dragonOpenMouth);
+						}
+
+						fireball.transition({
+							duration: 1,
+							top: '50px',
+						}, function() {
+							fireball.transition({
+								duration: 0,
+								top: '-300px'
+							})
+						});
+
+						if(knightLevelTwo) {
+							attackShake(knight2);
+						}
+						else {
+							attackShake(knight);
+						}
+
+						if(secondDragon) {
+							fightConsole.innerHTML += 'Egad! It appearath as tho the dragon hath done his special scorch and damaged thee by ' + dragon2SpecialAttackDamageThisRound + '! <br>';
+
+							if(knightLevelTwo) {
+								totalKnightHealth -= (dragon2SpecialAttackDamageThisRound/2);
+							}
+							else {
+								totalKnightHealth -= dragon2SpecialAttackDamageThisRound;
+							}
+						}
+						else {
+							fightConsole.innerHTML += 'Egad! It appearath as tho the dragon hath done his special scorch and damaged thee by ' + (dragonSpecialAttackDamageThisRound * 10) + '! <br>';
+
+							if(knightLevelTwo) {
+								totalKnightHealth -= (dragonSpecialAttackDamageThisRound * 5);
+							}
+							else {
+								totalKnightHealth -= (dragonSpecialAttackDamageThisRound * 10);
+							}
+						}
+
+						if(totalKnightHealth <= 0) {
+							fightConsole.innerHTML += 'Thou art dead.';
+							totalKnightHealth = 0;
+						}
+					}
+					else {
+						fightConsole.innerHTML += 'Whew! Thine opponet tried their special attack and missed. Bless thine good luck. <br>';
+					}
+				}
+
+				newAsyncQueueRefresh(knightHealthBar, totalKnightHealth, knightLevelTwo); //Runs the AsyncQueue you built at the beginning of the function to update the knigth's health bar
+
+			}, 1000);
+
+			//Once the first dragon is defeated, this function transitions in the second one
+			var newDragon = new Y.debounce(function() {
+				newModal(
+					'It appearath as tho the sound of thine epic duel has awakened a second dragon! Defend thyself.',
+					'<h3>Look Out!</h3>',
+					190,
+					600,
+					'#newDragonPopup',
+					function() {
+						Y.one('#newDragonPopup').hide();
+
+						dragonAttackStat.setHTML("Attack: 60 - 80");
+						dragonSpecialAttackStat.setHTML("Special Attack: 40 - 120");
+
+						totalDragonHealth = 100;
+
+						newDragonHealth = new Y.AsyncQueue(
+							{
+								fn: function() {
+									dragonHealthBar.set('value', totalDragonHealth); //updates the progress bar
+									dragonHealthBar.set('label', '200');
+
+									fightConsole.innerHTML = '';
+								},
+								iterations: 1
+							}
+						).run();
+
+						secondDragon = true;
+
+						imageSwitch(dragon, dragon2);
+
+						newModal(
+							'Praise Jehovah Rapha! Thou has been divinely healed to aid thee in vanquishing thy foe.',
+							'<h3>Glory!</h3>',
+							190,
+							600,
+							'#jehovahRapha',
+							function() {
+								Y.one('#jehovahRapha').hide();
+
+								if(totalKnightHealth < 100) {
+									totalKnightHealth = 100;
+
+									divineHealing = new Y.AsyncQueue(
+										{
+											fn: function() {
+												knightHealthBar.set('value', totalDragonHealth); //updates the progress bar
+											},
+											iterations: 1
+										}
+									).run();
+								}
+							}
+						);
+					}
+				);
+			}, 1000);
+
+			//This function is called when the button is clicked and sets everything into motion
+			attackButton.on(
+				'click',
+				function(event) {
+
+					if (totalKnightHealth > 0 && totalDragonHealth > 0) {
+						var knightDamageThisRound = knightDamage[Math.floor(Math.random()* 1.9)]; // Randomly determines the damage done using the array knightDamage
+						var knightLevelTwoDamageThisRound = knightLevelTwoDamage[Math.floor(Math.random()* 2.9)];
+						var knightExpThisRound = Math.floor(Math.random()* 2.9 + 1) * 10; //Randomly determines the experience awarded the knight during his attack
+						var knightExpDifference;
+
+						if(secondDragon) {
+							attackShake(dragon2);
+						}
+						else {
+							attackShake(dragon);
+						}
+
+						if(knightLevelTwo) {
+							imageAttackSwitch(knight2, knight2ExtendedArm);
+							knightAttackAnimation(spear);
+
+							fightConsole.innerHTML +='Great shot! Thou hast struck the dragon a hearty blow of ' + (knightLevelTwoDamageThisRound * 10) + ' and you gained ' + knightExpThisRound + ' XP! <br>';
+
+							if(secondDragon) {
+								totalDragonHealth -= (knightLevelTwoDamageThisRound * 5);
+							}
+							else {
+								totalDragonHealth -= (knightLevelTwoDamageThisRound * 10); // Updates the Dragon's Health by subtracting the damage done
+							}
+						}
+						else {
+							imageAttackSwitch(knight, knightExtendedArm);
+							knightAttackAnimation(sword);
+
+							fightConsole.innerHTML +='Great shot! Thou hast struck the dragon a hearty blow of ' + (knightDamageThisRound * 10) + ' and you gained ' + knightExpThisRound + ' XP! <br>';
+
+							if(secondDragon) {
+								totalDragonHealth -= (knightDamageThisRound * 5);
+							}
+							else {
+								totalDragonHealth -= (knightDamageThisRound * 10); // Updates the Dragon's Health by subtracting the damage done
+							}
+						}
+
+						totalKnightExperience += knightExpThisRound;
+
+						if(totalDragonHealth <= 0) {
+							fightConsole.innerHTML += 'Hooray! The great beast has fallen by the might of thine sword-spear thing. Thou bravery will be sung about in many a tavern near and far!';
+							totalDragonHealth = 0; // Resets any negative number to 0 to make sure Dragon's Health is never a neagative number
+
+							if(secondDragon) {
+								newAsyncQueueRefresh(dragonHealthBar, totalDragonHealth, secondDragon);
+
+								newModal(
+									'Many praises be upon thee! Thou hast defeated the dragons. Thou art a fierce dragon slayer.',
+									'<h3>Hooray!</h3>',
+									180,
+									630,
+									'#congrats',
+									function() {
+										Y.one('#congrats').hide();
+										window.location.href = "celebration.html";
+									}
+								);
+							}
+							else {
+								newDragon();
+							}
+						}
+
+						newAsyncQueueRefresh(dragonHealthBar, totalDragonHealth, secondDragon);
+
+						if(totalKnightExperience >= 100) {
+							knightExpDifference = totalKnightExperience - 100;
+							totalKnightExperience = 100;
+
+							newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+							Y.one('#levelUp').show();
+
+							newModal(
+								'Thou has leveled up! Your health, attack and special attack increased!',
+								'<h3>Level Up!</h3>',
+								190,
+								600,
+								'#levelUp',
+								function() {
+									Y.one('#levelUp').hide();
+
+									knightAttackStat.setHTML("Attack: 50 - 70");
+									knightSpecialAttackStat.setHTML("Special Attack: 30 - 100");
+
+									imageSwitch(knight, knight2);
+
+									totalKnightHealth = 100;
+
+									refreshKnightHealth = new Y.AsyncQueue(
+										{
+											fn: function() {
+												knightHealthBar.set('value', totalKnightHealth); //updates the value of the progress bar
+												knightHealthBar.set('label', (totalKnightHealth*2)); //updates the label of the progress bar
+											},
+											iterations: 1
+										}
+									).run();
+
+									knightLevelTwo = true;
+
+									if (totalDragonHealth > 0) {
+										dragonsTurn();
+									}
+								}
+							);
+
+							totalKnightExperience = 0;
+							newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+							totalKnightExperience = knightExpDifference;
+							newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+						}
+						else{
+							newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+							if (totalDragonHealth > 0) {
+								dragonsTurn();
+							}
+						}
+					}
+					else{
+						if(totalKnightHealth <= 0) {
+							alert('Thou cannot attack! Thou art dead.');
+						}
+						else {
+							alert('Thou hast already vanquished thy foe!')
+						}
+					}
+				}
+			);
+
+			specialAttack.on(
+				'click',
+				function(event) {
+					if (totalKnightHealth > 0 && totalDragonHealth > 0) {
+						var knightDamageThisRound = Math.floor(Math.random()*6.9 + 1);
+						var knightLevelTwoDamageThisRound = knightLevelTwoSpecialDamage[Math.floor(Math.random()* 7.9)];
+						var knightSpecial = Math.floor(Math.random()*2); //Randomly determines if the special attack hits or misses
+						var knightExpThisRound = Math.floor(Math.random()* 5.9 + 1) * 10; //Randomly determines the experience awarded the knight during his attack
+						var knightExpDifference;
+
+						if(knightSpecial) {
+
+							if(secondDragon) {
+								attackShake(dragon2);
+							}
+							else {
+								attackShake(dragon);
+							}
+
+							if(knightLevelTwo) {
+								imageAttackSwitch(knight2, knight2ExtendedArm);
+								knightSpecialAttackAnimation(spear1, 0, 0.8);
+								knightSpecialAttackAnimation(spear3, 0.2, 0.7);
+								knightSpecialAttackAnimation(spear2, 0.4, 0.6);
+
+								fightConsole.innerHTML +='Incredible aim! Thy special attack did ' + (knightLevelTwoDamageThisRound * 10) + ' damage to the foul beast and you gained ' + knightExpThisRound + ' XP! <br>';
+
+								if(secondDragon) {
+									totalDragonHealth -= (knightLevelTwoDamageThisRound * 5);
+								}
+								else {
+									totalDragonHealth -= (knightLevelTwoDamageThisRound * 10); // Updates the Dragon's Health by subtracting the damage done
+								}
+							}
+							else {
+								imageAttackSwitch(knight, knightExtendedArm);
+								knightSpecialAttackAnimation(sword1, 0, 0.8);
+								knightSpecialAttackAnimation(sword3, 0.2, 0.7);
+								knightSpecialAttackAnimation(sword2, 0.4, 0.6);
+
+								fightConsole.innerHTML +='Incredible aim! Thy special attack did ' + (knightDamageThisRound * 10) + ' damage to the foul beast and you gained ' + knightExpThisRound + ' XP! <br>';
+
+								if(secondDragon) {
+									totalDragonHealth -= (knightDamageThisRound * 5);
+								}
+								else {
+									totalDragonHealth -= (knightDamageThisRound * 10); // Updates the Dragon's Health by subtracting the damage done
+								}
+							}
+
+							totalKnightExperience += knightExpThisRound;
+
+							if(totalDragonHealth <= 0) {
+								fightConsole.innerHTML += 'Hooray! The great beast has fallen by the might of thine sword-spear thing. Thou bravery will be sung about in many a tavern near and far!';
+								totalDragonHealth = 0; // Resets any negative number to 0 to make sure Dragon's Health is never a neagative number
+
+								if(secondDragon) {
+									newAsyncQueueRefresh(dragonHealthBar, totalDragonHealth, secondDragon);
+
+									newModal(
+										'Many praises be upon thee! Thou hast defeated the dragons. Thou art a fierce dragon slayer.',
+										'<h3>Hooray!</h3>',
+										180,
+										630,
+										'#congrats',
+										function() {
+											Y.one('#congrats').hide();
+											window.location.href = "celebration.html";
+										}
+									);
+								}
+								else {
+									newDragon();
+								}
+							}
+
+							newAsyncQueueRefresh(dragonHealthBar, totalDragonHealth, secondDragon);
+
+							if(totalKnightExperience >= 100) {
+								knightExpDifference = totalKnightExperience - 100;
+								totalKnightExperience = 100;
+
+								newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+								Y.one('#levelUp').show();
+
+								newModal(
+									'Thou has leveled up! Your health, attack and special attack increased!',
+									'<h3>Level Up!</h3>',
+									190,
+									600,
+									'#levelUp',
+									function() {
+										Y.one('#levelUp').hide();
+
+										imageSwitch(knight, knight2);
+
+										knightAttackStat.setHTML("Attack: 50 - 70");
+										knightSpecialAttackStat.setHTML("Special Attack: 30 - 100");
+
+										totalKnightHealth = 100;
+
+										knightLevelTwo = true;
+
+										newAsyncQueueRefresh(knightHealthBar, totalKnightHealth, knightLevelTwo);
+
+										if (totalDragonHealth > 0) {
+											dragonsTurn();
+										}
+									}
+								);
+
+								totalKnightExperience = 0;
+								newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+								totalKnightExperience = knightExpDifference;
+								newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+								knightLevelTwo = true;
+							}
+							else{
+								newAsyncQueueRefresh(knightExpBar, totalKnightExperience, false);
+
+								if(totalDragonHealth > 0) {
+									dragonsTurn();
+								}
+							}
+						}
+						else {
+							fightConsole.innerHTML += 'Zoinks! It appearath as tho thy special attack has missed the lucky fiend! <br>'
+
+							if(totalDragonHealth > 0) {
+									dragonsTurn();
+							}
+						}
+					}
+					else {
+						if(totalKnightHealth <= 0) {
+							alert('Thou cannot attack! Thou art dead.');
+						}
+						else {
+							alert('Thou hast already vanquished thy foe!')
+						}
+					}
+			});
+		}
+	);
+	</script>
+
+</body>
+</html>

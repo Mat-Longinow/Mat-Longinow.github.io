@@ -1,0 +1,9 @@
+Paused to do theme exercise
+
+When I start again:
+	> Condense logic down more, use more global functions, etc and then just call them in when needed. Just condense the
+          code and remove repition if possible.
+	> Create notes within the html doc of what is going on and what I'm doing
+	> Also create a 'manual' of sorts that kinda sets up an exercise that my code is my answer to. (Aka: 'This exercise
+          we are creating a rpg game that will use a random number generator. Basically make it so that if another intern was
+          to open it, they would make something similar to what I did.

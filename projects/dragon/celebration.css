@@ -1,0 +1,116 @@
+body {
+	background-image: url(images/crowd.jpg);
+	background-size: 100%;
+	position: relative;
+}
+
+#knightContainer {
+
+}
+
+img {
+	position: absolute;
+}
+
+#knight2 {
+	right: 0;
+	top: 10em;
+}
+
+#dragon {
+	left: 15%;
+	top: 25em;
+}
+
+#dragon2 {
+	top: 75%;
+	left: 0;
+}
+
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(40px, 20px) rotate(0deg); }
+	10% { -webkit-transform: translate(-20px, -40px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-60px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 40px) rotate(0deg); }
+	40% { -webkit-transform: translate(20px, -20px) rotate(1deg); }
+	50% { -webkit-transform: translate(-20px, 40px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-60px, 20px) rotate(0deg); }
+	70% { -webkit-transform: translate(40px, 20px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-20px, -20px) rotate(1deg); }
+	90% { -webkit-transform: translate(40px, 40px) rotate(0deg); }
+	100% { -webkit-transform: translate(40px, 30px) rotate(-1deg); }
+}
+.bounce {
+	-webkit-animation-name: spaceboots;
+	-webkit-animation-duration: 1.75s;
+	-webkit-transform-origin:100% 100%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	display: inline-block;
+}
+
+@-webkit-keyframes spasm {
+	0% { -webkit-transform: translate(20px, 40px) rotate(5deg); }
+	10% { -webkit-transform: translate(-40px, -20px) rotate(-5deg); }
+	20% { -webkit-transform: translate(0px, -60px) rotate(10deg); }
+	30% { -webkit-transform: translate(40px, 0px) rotate(5deg); }
+	40% { -webkit-transform: translate(-20px, 20px) rotate(5deg); }
+	50% { -webkit-transform: translate(40px, -20px) rotate(-5deg); }
+	60% { -webkit-transform: translate(20px, -60px) rotate(5deg); }
+	70% { -webkit-transform: translate(20px, 40px) rotate(-5deg); }
+	80% { -webkit-transform: translate(-20px, -20px) rotate(5deg); }
+	90% { -webkit-transform: translate(40px, 40px) rotate(10deg); }
+	100% { -webkit-transform: translate(30px, 40px) rotate(5deg); }
+}
+.spasm {
+	-webkit-animation-name: spasm;
+	-webkit-animation-duration: 1.75s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	display: inline-block;
+}
+
+@-webkit-keyframes dance {
+	0% { -webkit-transform: translate(35px, 40px) rotate(3deg); }
+	10% { -webkit-transform: translate(-40px, -20px) rotate(-5deg); }
+	20% { -webkit-transform: translate(-100px, -60px) rotate(17deg); }
+	30% { -webkit-transform: translate(4px, 0px) rotate(4deg); }
+	40% { -webkit-transform: translate(-20px, -20px) rotate(-6deg); }
+	50% { -webkit-transform: translate(40px, -20px) rotate(5deg); }
+	60% { -webkit-transform: translate(20px, 160px) rotate(-5deg); }
+	70% { -webkit-transform: translate(25px, 40px) rotate(5deg); }
+	80% { -webkit-transform: translate(-20px, -20px) rotate(-5deg); }
+	90% { -webkit-transform: translate(40px, 40px) rotate(10deg); }
+	100% { -webkit-transform: translate(30px, 40px) rotate(-5deg); }
+}
+.dance {
+	-webkit-animation-name: dance;
+	-webkit-animation-duration: 1.75s;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	display: inline-block;
+}
+
+@-webkit-keyframes seizure {
+	0% { -webkit-transform: translate(-10px, 20px) rotate(3deg); }
+	10% { -webkit-transform: translate(-40px, -50px) rotate(-5deg); }
+	20% { -webkit-transform: translate(10px, 160px) rotate(17deg); }
+	30% { -webkit-transform: translate(45px, 0px) rotate(4deg); }
+	40% { -webkit-transform: translate(20px, -20px) rotate(-6deg); }
+	50% { -webkit-transform: translate(40px, -70px) rotate(5deg); }
+	60% { -webkit-transform: translate(75px, -16px) rotate(-5deg); }
+	70% { -webkit-transform: translate(150px, 40px) rotate(5deg); }
+	80% { -webkit-transform: translate(-20px, -20px) rotate(-5deg); }
+	90% { -webkit-transform: translate(40px, 40px) rotate(10deg); }
+	100% { -webkit-transform: translate(30px, 40px) rotate(-5deg); }
+}
+.seizure {
+	-webkit-animation-name: seizure;
+	-webkit-animation-duration: 1.75s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	display: inline-block;
+}
