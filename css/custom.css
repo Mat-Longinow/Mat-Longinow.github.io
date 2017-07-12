@@ -167,6 +167,20 @@ footer .container {
 	padding-top: 20px;
 }
 
+.blog {
+	padding-top: 40px;
+}
+
+.blog .blog-title {
+	padding-bottom: 40px;
+	padding-top: 40px;
+}
+
+.blog-post-date {
+	padding-bottom: 0px;
+	padding-top: 40px;
+}
+
 /*-------------------------
 		Projects Page
 --------------------------*/
