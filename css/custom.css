@@ -28,6 +28,21 @@ a:hover {
 	margin-bottom: 40px;
 }
 
+.section-header-text {
+	font-size: 16px;
+}
+
+.title {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.red-title {
+	border-bottom: 1px solid #dd352e;
+	padding-bottom: 15px;
+	width: 30%;
+}
+
 .container {
 	padding-bottom: 40px;
 }
