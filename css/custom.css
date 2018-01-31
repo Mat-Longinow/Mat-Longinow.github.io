@@ -222,4 +222,28 @@ footer .container {
 	margin-top: 25px;
 }
 
+/*-------------------------
+		Contact Page
+-------------------------*/
 
+/*----- Funny Stretch Page Workaround ----
+
+It seems that this works for the time being but it definitely feels hack-y.
+Apply .stay-botom to footer, and apply stay-stretch to html and body while
+putting .light-gray to the body as well.
+
+*/
+
+.stay-bottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.stay-stretch {
+	height: 100%;
+}
+
+#thankyou {
+	/*padding-top: 45%;*/
+}
