@@ -7,7 +7,7 @@ While there aren't many instructions here, I mainly want to convey the following
 
 #### Why?
 
-I am creating this site so that I can document and convey my personal journey with the world of programming and coding, in all it's joy's and frustrations.
+I am creating this site so that I can document and convey my personal journey with the world of programming and coding, in all it's joys and frustrations.
 
 #### How?
 

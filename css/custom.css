@@ -178,6 +178,18 @@ footer .container {
 	padding: 0px 20px 40px 20px;
 }
 
+.blog-row a {
+	color: #262624;
+}
+
+.blog-row a:hover {
+	color: #a31c16;
+}
+
+.blog-row a h3 {
+	color: #dd352e;
+}
+
 #blog-section-title {
 	padding-top: 20px;
 }
