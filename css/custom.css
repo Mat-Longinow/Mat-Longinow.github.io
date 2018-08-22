@@ -98,7 +98,7 @@ height of the other column*/
 header {
 	width: 100%;
 	height: 27em;
-	color: #fff;
+/*	color: #fff;*/
 }
 
 #title, #sub-title {
@@ -158,6 +158,12 @@ footer {
 
 footer .container {
 	padding-bottom: 0;
+}
+
+#sitemap-footer {
+	position: absolute;
+	right: 7%;
+	text-align: right;
 }
 
 
@@ -241,7 +247,7 @@ footer .container {
 /*----- Funny Stretch Page Workaround ----
 
 It seems that this works for the time being but it definitely feels hack-y.
-Apply .stay-botom to footer, and apply stay-stretch to html and body while
+Apply .stay-bottom to footer, and apply stay-stretch to html and body while
 putting .light-gray to the body as well.
 
 */
@@ -258,4 +264,16 @@ putting .light-gray to the body as well.
 
 #thankyou {
 	/*padding-top: 45%;*/
+}
+
+/*-------------------------
+		Sitemap Page
+-------------------------*/
+
+#sitemap .row {
+	margin: 50px;
+}
+
+#sitemap .row h3{
+	padding: 15px 0;
 }
