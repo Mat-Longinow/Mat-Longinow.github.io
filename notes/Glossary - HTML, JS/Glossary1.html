@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Glossary</title>
+	<link type="text/css" rel="stylesheet" href="Glossary1.css">
+</head>
+
+<body>
+	<div id="header">
+		<h1>Glossary</h1>
+		<nav>
+			<ul>
+				<li><a href="#html">HTML</a></li>
+
+				<li><a href="#jscript">JavaScript</a></li>
+
+				<li><a href="#jQuery">jQuery</a></li>
+
+				<li><a href="#php">PHP</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div id="html">
+		<h2><u>HTML</u></h2>
+		<br>
+		<h3>The Basics</h3>
+			<p>These are the basic elements you will need in your HTML/CSS document:</p>
+			<ul>
+				<li><b>!DOCTYPE html</b>: this is a tag that you always start your HTML document with. It's a must!</li><br>
+				<li><b>html</b>: this tag begins whatever code you enter in to your html document.</li><br>
+				<li><b>head</b>: This element stores the tags/elements (like <i>style</i> or <i>title</i>) that alter your webpage, but don't actually show up on your page at all (as opposed to <i>p</i> or <i>h1</i>).</li><br>
+			</ul>
+			<br>
+			<p>So all in all, your beginning HTML document (with all the basics) should look something like this:</p>
+			<img src="The basics (intro).png">
+		<br>
+		<br>
+		<br>
+		<h3>Writing Basics</h3>
+			<p>The main tools you need to enter text on to your webpage come in the following forms:
+			<ul>
+				<li><b>p</b>: This stands for parapgraph and is the standard text entry, for everthing from a paragrapah to half a sentence.</li><br>
+				<li><b>h1(2,3,4,5,6)</b>: The h stands for header. The number following h dictates the text size of the header. H1 is the largest header and h6 is the smallest.</li><br>
+			</ul>
+
+				<p>Here are examples of both:<p>
+				<img src="Writing basics(1).png"><br><br><br>
+
+		<h3>Links and Images</h3>
+			<p>These elements are for inserting pictures and links, both seperately and together!</p>
+			<ul>
+				<li><b>a href</b>: this is how you insert a link to another webpage. You would wrap the <i>a</i> tag around whatever word you wanted to make a hyperlink. For instance, this is what it would look like to go to facebook using the word Facebook:</li><br>
+				<img src="Links and Images (link).png">
+				<br><br>
+				<li><b>mailto:</b> you can also use a text to link to a window where you can actually mail a certain email address. It would look something like this:</li>
+				<br><img src="Mail To.png">
+				<br><br>
+				<li><b>img src</b>: this stands for image source and is how you pull in an image from a URL or your computer. If you wanted to use a link to an image using a URL this is how you would format this element:</li>
+				<br><img src="Links and Images (image).png">
+			</ul>
+				<br><br><br>
+		<h3>HTML Entities</h3>
+			<p>There are certain symbols that are not allowed in HTML, for instance the &gt; and the &lt; sign (among others). Here is a chart on how to write them within an .html document:</p>
+			<br>
+			<img id="Entities" src="HTML Entities.png">
+		<br><br><br>
+		<h3>Commenting</h3>
+			<p>You can comment within the HTML document in a way that won't show up in the final product at all but using the following code:</p>
+			<br><img src="HTML Comment.png">
+		<br>
+		<h3>Functions</h3>
+			<p>One random side note about functions is that when you use parenthesis at the end of the function (ex <b>myFunction()</b>), then it calls the function and yields whatever the outcome of the function is. If you use it without parenthesis (ex <b>myFunction</b>), then it calls only the function itself.</p>
+	</div>
+
+	<hr>
+
+	<div id="jscript">
+		<h2><u>JavaScript</u></h2>
+		<br><br><br>
+			<h3>If... else... formatting</h3>
+				<p>You want to make sure that you get the formatting for the If... else... comparison statements right, else it will bite you in the butt (see what I did there?)</p>
+				<p>Here is a proper example:</p>
+				<br><img id="if_else_format" src="if else formating.png">
+				<br><br><br>
+			<h3>Document.write</h3>
+				<p>You are able to write directly in to the HTML output using the command <b>document.write</b> command.<p>
+				<p>However one thing to note is to make sure that you use the document.write command only in the HTML output, otherwise it will overwrite the document.</p>
+			<br><br><br>
+			<h3>Prompt command</h3>
+				<p>A prompt will simply (when excecuted) pop up a little prompt window with the text you put within the prompt command and a space for the user to type a response which will then be returned back to the JavaScript. However you also can also put text in the response box that they will type over, simply enter two different strings and seperate them by a comma, like this:</p>
+				<br></var><img src="Prompt Comma Example.png">
+			<br><br><br>
+			<h3>While Loop Formatting</h3>
+				<p>The while loop is similar to the for loop, but it will continue to run until the condition its running from is false. So (for example) in an array, it will continue to run through the array until it finds something that is false and then it will switch off. Here is an example to follow for the while loop.</p>
+				<br><img src="While Loop Format.png">
+			<br><br><br>
+			<h3>Do/While Loop Formating</h3>
+				<p>The basic idae of a do/while loop is this "do {this code once}, then start your while(loop). This makes it so that even if the while condition is false, it will still run the code once for the do portion and then will switch to the while loop. The do/while loop can be tricky so here is the formating you are going to want to follow...</p>
+				<br><img src="Do.While Loop Format.png">
+			<br><br><br>
+			<h3>Switch Statement</h3>
+				<p>The switch statement makes it easer to do the idea of an if/else statement. So you can set switch(x) and then set numerous cases (or if statements) to output different outcomes depending on what x is. If x doesn't match any of the cases, then a default output is loaded. Here is an example and some notes on using the switch statement.</p>
+				<br><img src="Switch Example.png">
+			<br><br><br>
+			<h3>Operators</h3>
+				<p>Operators are used so that multiple variables can be used in different functions and statements.</p>
+				<ul> 
+						<li><p><b>AND</b>:</p>							<!-- Maybe try making this list in to a table??-->
+							<img src="Operators And.png"></li>
+						<br><br>
+						<li><p><b>OR</b>:</p>
+							<img src="Operators Or.png"></li>
+						<br><br>
+						<li><p><b>NOT</b>:</p>
+							<br><img src="Operators Not.png"></li>
+				</ul>
+			<br><br><br>
+			<h3>Commands</h3>
+				<ul>
+					<li><p><b>Math.floor</b>: This is a command that will take the number in parenthesis and round it down to the nearest whole number. </p>
+						<br><img src="Math.floor.png"></li>
+					<br><br><br>
+					<li><p><b>Math.random()</b>: This will tell the computer to generate a random number between 0 and 1.</p>
+						<br><img src="Math.random.png"></li>
+					<br><br><br>
+					<li><p><b>Math.floor and Math.random together</b>: When you use both Math.floor and Math.random together, they can actually be manipulated to produce random whole numbers.</p>
+						<br><img src="Math.floor and Math.random.png"></li>
+					<br>
+					<li><p><b>Math.PI</b>: This creates the pie number (you know... blueberry, pecan, apple...)</p></li>
+					<br><br>
+				</ul>
+				<h4>JavaScript</h4>
+				<ul>
+					<li><p><b>Type of</b>: This will tell you what type of data something is. So you could type: console.log(typeof 42) and it would print out 'number'.</p></li>
+					<br><br>
+					<li><p><b>.hasOwnProperty("prop")</b>: This interacts with an object to check to see if the given property is within the object that this command is called with (aka if you put Mat.hasOwnProperty("poop"), it will check the object Mat to see if it has a property called poop. If it does, it will print true, if it doesn't it will print false.</p></li>
+					<br><br>
+					<li><p><b>parseInt()</b>: This command will convert a string in to a number. See the explanation below.</p>
+						<br><img src="ParseInt Example.png">
+				</ul>
+			<br><br><br>
+
+			<h3>Arrays</h3>
+				<p>Arrays are essentially a data storage place. You can store numbers there, strings, booleans, objects, etc. You can keep it all the same kind of data, or make it <b>heterogeneous</b> and have multiple types of data in it! Arrays are on a 0 based indexing system. Aka, if you want to access the first data in the set, it's actually considered 0, and the second is 1 and so on.</p>
+					<br><img src="Arrays.png">
+				<br><br>
+				<p>Another important thing to know about arrays is how to access the data stored within the array. Don't forget about the <b>0 based indexing rule</b>! Check out the example below.</p>
+					<br><img src="Accessing Array Data.png">
+				<br><br>
+				<p>Also with arrays, when you apply the .length command to them, it applies it to the number of elements the array has.</p>
+					<br><img src="Arrays.length.png">
+				<br><br>
+				<p>Arrays can also be <b>mulit-dimensional</b> which basically means you can have arrays within arrays. You can have a two-dimensional array that has an array in an array which is called <b>nesting</b> one array within another. Check out the example below.</p>
+					<br><img src="2DArray.png">
+				<br><br>
+				<p>A <b>jagged</b> array is one that is mulit-dimensional where the dimensions (arrays within the original array) are different lengths.</p>
+					<br><img src="Jagged Arrays.png">
+				<p>Also a neat little trick with Arrays is how to quickly another piece of data to the array. To execute the trick, however, you need to know two things. One is that to add another piece of data to the array you use this formula: array[i] = "NewData" with the 'i' being the next number in the sequence of the array. Ex. if you have 3 pieces of data in the array, 'i' would be the 4th number, but remember that with the 0 base numbering that arrays use, in the example, i would be 3 (because you started counting at 0). So when you combine this with the fact that array.length will tell you how many pieces of data are in an array, you get the neat trick. Because array.length is not on the 0 based numbering, the outcome of array.length will always be the next number you want to put in to array[i]when creating a new piece of data for your array. Pretty neat huh?</p>
+			<br><br><br>
+			<h3>Objects</h3>
+				<p>Objects take data (strings, numbers and booleans, etc) and put them together with functions. You do this by providing keys (also known as <b>properties</b>) and values. You can format them in the following ways: (<b>Object Literal Notation</b> - ex. 1 or <b>Object Constructor</b> - ex. 2). Note their punctuation differences.</p>
+					<br><img src="Objects Keys and Values.png"><img src="Objects Constructer.png">
+				<br><br>
+				<p>Also another way to use the Object Constructor method is in the following <b>Custom Constructor</b>. With this method you can quickly make many similar objects with all the same properties that you can either define beforehand in the function, or set as arguments that will be defined when you create the object.</p>
+				<br><img src="Custom Constructor Objects.png">
+				<br>
+				<p><b>For... In... Function</b>: this function interacts with objects and can work with different properties of that object. Look at the example below for more of an explanation of the format and how it works.</p>
+				<br>
+				<img src="For... In Functions Objects.png">
+				<br><p>also here is a good explanation of what a for... in loop is doing.</p>
+				<br><img src="Good Explanation For In Loops.png">
+				<br><br><br>
+				<p>There are two ways to access your object properties. You can use <b>dot notation</b> or <b>bracket notation</b>.</p>
+					<br><img src="Dot and Bracket Notation Objects.png">
+				<p><b>Methods</b> are very important in objects as well. They are basically similar to a n object property, but instead of holding just data (like a string or numbers), they hold a formula instead.</p>
+					<br><img src="Method Example Objects.png">
+				<br>
+				<p>You can also use the keyword <b>this</b> to make a method available for use with any object.</p>
+					<br><img src="This Method Objects.png">
+				<p>Here is a helpful example of how objects and arrays can interact with each other. In it they are asking for a for loop that prints out each .name property of the objects in the array.</p>
+					<br><img src="Array and Object Constructor Example.png">
+				<p>You can also use objects as parameters (or arguments) in functions. Check out the example below:</p>
+					<br><img src="Objects as Parameters in Functions.png">
+				<p><b>Classes</b>: Classes basically are a "type" of object. When you use the <i>Custom Constructor</i> to make an object (like in the example below), you basically are making the class by defining what the <b>prototype</b> is at the very beginning. So in the below example, the class name is Person and how it is defined starting on line 1.</p>
+				<br><img src="Custom Constructor Objects.png">
+				<br><br>
+				<p><b>Extending Prototypes</b>: The prototype of a class of objects (see above for explanation of that) can be changed (or extended) after it has been initially declared. You do this by using the following code.</p>
+				<br><img src="Extending Prototypes Objects.png">
+				<p><b>Inheritance</b>: This is the rule that there can be classes of objects that inherit properties and methods of another class. The image below helps explain.</p>
+				<br><img src="Inheritance Example Objects.png">
+	</div>
+
+	<hr>
+
+	<div id="jQuery">
+		<h2><u>jQuery</u></h2>
+		<br><br><br>
+			<h3>Syntax Rules</h3>
+				<ul>
+					<li>
+						<p>Use $ in front of your code</p>
+					</li>
+					<li>
+						<p>Nest your ' and " if you are using multiple quotations in your code</p>
+						<ul>
+							<li>
+								<p>ex. $('#green-box').html('< img src="http://i.imgur.com/8NArGWZ.gif" />')</p>
+							</li>
+							<li>
+								<p>As you can see, the img element uses " inside, instead of the ' from the jQuery code</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			<h3>Functions</h3>
+				<ul>
+					<li>
+						<p><b>Element Selector</b></p>
+						<ul>
+							<li>
+								<p>$('<i>your element here (don't forget to add # or . if needed)</i>')</p>
+							</li>
+							<li>
+								<p>ex. $('#idName')</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p><b>Change/Add CSS</b></p>
+						<ul>
+							<li>
+								<p>$('<i>element</i>').css('<i>css selector</i>','<i>change you want</i>')</p>
+							</li>
+							<li>
+								<p>ex. $('#green-box').css('background-color','lightskyblue')</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p><b>Add HTML</b></p>
+						<ul>
+							<li>
+								<p>$('<i>element</i>').html('<i>html you want to insert</i>')</p>
+							</li>
+							<li>
+								<p>ex. $('#green-box').html('< img src="http://i.imgur.com/8NArGWZ.gif" />')</p>
+								<ul>
+									<li>
+										<p>Had to leave a space in between < and img above so that you could see the code instead of seeing the image.</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p><b>Append/Prepend</b></p>
+						<ul>
+							<li>
+								<p>Does something very similar to <i>.html(</i></p>
+							</li>
+							<li>
+								<a href="https://goo.gl/WXZb9a">https://goo.gl/WXZb9a</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+	</div>
+
+	<hr>
+
+	<div id="php">
+		<h2><u>PHP</u></h2>
+		<br><br><br>
+			<h3>Syntax Rules</h3>
+				<ul>
+					<li>
+						<p>PHP requires semicolons at the end of each statement, which is the shortest unit of standalone code. Like in CSS.</p>
+						<ul>
+							<li>
+								<p>Ex. - <em>echo "I'm writing PHP";</em></p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>To connect different strings together, use a dot (.) instead of a + like in JavaScript</p>
+						<ul>
+							<li>
+								<p>Ex. - <em>echo "I'm writing" . " PHP";</em></p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Variables have a $ in front of them</p>
+						<ul>
+							<li>
+								<p>Ex. - <em>$myEcho = "I'm writing PHP";</em></p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Use // for a comment</p>
+						<ul>
+							<li>
+								<p>Ex. - <em>// I'm a comment</em></p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Comparison Operators</p>
+						<ul style="list-style-type:none">
+							<li>
+								<img src="Comparison Operators.png">
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			<h3>Functions</h3>
+				<ul>
+					<li>
+						<p><b>Echo:</b> Outputs strings</p>
+						<ul>
+							<li>
+								<p>The echo function can also do math</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p><b>If...Else...:</b> Same as JavaScript (see above)</p>
+						<ul>
+							<li>
+								<p>Ex:</p>
+								<em><p>if (condition inside these paranteses is true) {</p>
+								<p>do this code }</p>
+								<p>else {</p>
+								<p>do this code }</p></em>
+							</li>
+							<li>
+								<p>Also, you can do <b>elseif</b> to extend to another condition to the typical if else statement.</p>
+								<ul>
+									<li>
+										<p>Ex:</p>
+										<em><p>if (condition inside these paranteses is true) {</p>
+										<p>do this code }</p>
+										<p>else if (condition inside these paranteses is true) {</p>
+										<p>do this code }</p>
+										<p>else {</p>
+										<p>do this code }</p></em>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p><b>Switch Statement:</b> Same as JavaScript, see above</p>
+						<ul>
+							<li>
+								<p>How to do multiple cases having the same result...</p>
+								<img src="FallingThrough1.png">
+								<img src="FallingThrough2.png">
+							</li>
+							<li>
+								<p>You can also end the switch two ways...</p>
+								<img src="endswitch.png">
+								<p><em>endswitch</em> is generally used when mixing HTML and PHP in the same file to improve readibility.</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+	</div>
+
+
+</body>

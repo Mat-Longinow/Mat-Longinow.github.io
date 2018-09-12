@@ -267,6 +267,30 @@ putting .light-gray to the body as well.
 }
 
 /*-------------------------
+		Notes - CSS Page
+-------------------------*/
+
+#notes .row {
+	margin-top: 5%;
+}
+
+html body #notes .col-gap {
+	margin-right: 8%;
+}
+
+#notes .notes-wrapper {
+	margin: 0;
+	padding: 0;
+}
+
+#notes .notes-inner-wrapper {
+	color: #333;
+	margin: 15px;
+	padding: 15px;
+}
+
+
+/*-------------------------
 		Sitemap Page
 -------------------------*/
 
